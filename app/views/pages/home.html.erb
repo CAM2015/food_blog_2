@@ -1,1 +1,14 @@
-<h1>Home</h1>
+
+<!--<% provide(:title, "Home") %><!DOCTYPE html> rails calls provde function and associate string 'Home' with the label ':title'-->
+<html>
+  <head>
+      <!--insert ':title' into the template-->
+    <title><%= yield(:title) %> | FoodieS</title>    
+  </head>
+  <body>
+    <h1>FoodieS</h1>
+    <p>
+      This is the home page
+       </p>
+  </body>
+</html>
