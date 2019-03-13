@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= yield(:title) %> | FoodieS</title>
+    <title>FoodieS</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,7 +9,13 @@
   </head>
 
   <body>
-    <%= yield %>
+    <!--partial for navigation-->
+     <%= render 'layouts/navigation' %>
+    <div class="container">
+      <%= yield %>
+    <%= render 'layouts/footer' %>
+ 
+    </div>
   </body>
 </html>
 
