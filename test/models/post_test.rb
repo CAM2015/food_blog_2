@@ -3,7 +3,15 @@ require "test_helper"
 class PostTest <ActiveSupport::TestCase
     
     def setup
-       @post = Post.new(name: 'eggs', description: 'how to cook eggs') 
+      #create a user
+      @user = User.create!(username: "camelia", email: "camelia@gmail.com")
+      #using .build automatically assign a user id to the posts
+      @post = @user.posts.build(name: 'eggs', description: 'how to cook eggs') 
+    end
+    
+    test "post without user should not be valid" do
+      @post.user_id = nil
+      assert_not @post.valid?
     end
     
     test "post should be valid" do
