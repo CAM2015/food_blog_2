@@ -5,4 +5,5 @@ Rails.application.routes.draw do
     get '/about', to:'pages#about'
     
     get '/posts', to: 'posts#index'
+    get '/posts/:id', to: 'posts#show', as: 'post'
 end

@@ -1,21 +1,23 @@
-<h1 align="center">Listing all Posts</h1>
-<hr />
+ <%=  render 'shared/page_title', title: "posts" %>
 
 <!--iterate through all posts-->
 <% @posts.each do |post| %>
   <div class="row">
     <div class="col-md-2">
-      <section class="center">
+      <section class="user_info center">
         
       </section>
     </div>
     <div class="col-md-8 well">
-      <h4><%= post.name  %></h4>
-      <p><%= truncate(post.description, length: 200)  %></p>
+      <%= gravatar_for(post.user, size: 50) %>
+      <h4><%= link_to post.name, post_path(post)  %></h4>
+      <p><%= truncate(post.description, length: 150)  %></p>
       <p>
         <span class="quiet"><small>Created <%= time_ago_in_words(post.created_at) %> ago</small></span>
       </p>
     </div>
+    
+    
   </div>
 
 <% end %>
