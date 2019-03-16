@@ -2,7 +2,7 @@
 <div class="well col-md-8 col-md-offset-2">
  <%=  render 'shared/page_title', title: @post.name %>
   <h4 class=""><strong>Steps: </strong></h4>
-    <hr />
+  
   <%= simple_format(@post.description) %>
   <div class="">
       <p><em>Author: </em></p>
@@ -11,7 +11,7 @@
       </p>
       <p>
         <small>
-          <%= @post.user.username.capitalize %>
+          <%= @post.user.username %>
         </small>
         <div class=""><%=  time_ago_in_words(@post.created_at) %>  ago</div>
       </p>

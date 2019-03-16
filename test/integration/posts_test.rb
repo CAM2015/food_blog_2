@@ -33,5 +33,29 @@ class PostsTest < ActionDispatch::IntegrationTest
     assert_match @user.username, response.body
     
   end 
+  
+  test "create new valid post" do
+    get new_post_path
+    assert_template 'posts/new'
+    name_of_post = "chicken kiev"
+    description_of_post = "rool meat with stuffings, bake for 30 min"
+    assert_difference 'Post.count', 1 do
+      post posts_path, params: { post: {  name: name_of_post, description: description_of_post} }
+    end
+    follow_redirect!
+    assert_match name_of_post, response.body
+    assert_match description_of_post, response.body
+  end
+  
+  test "reject invalid post submission" do
+    get new_post_path
+    assert_template 'posts/new'
+    assert_no_difference 'Post.count' do
+      post posts_path, params: { post: {  name: " ", description: " "} }
+    end
+    assert_template 'posts/new'
+    assert_select 'h2.panel-title'
+    assert_select 'div.panel-body'
+  end 
  
 end
