@@ -16,4 +16,10 @@
         <div class=""><%=  time_ago_in_words(@post.created_at) %>  ago</div>
       </p>
    </div>
+   <div class="post-actions">
+     <%=  link_to "Edit", edit_post_path(@post), class: "btn btn-xs btn-warning" %>
+     <%=  link_to "Delete", post_path(@post), method: :delete,
+                             data: { confirm: "Are you sure you want to deleyte this post?" },
+                             class: "btn btn-xs btn-warning" %>
+   </div>
 </div>
