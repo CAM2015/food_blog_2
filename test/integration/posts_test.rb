@@ -33,6 +33,7 @@ class PostsTest < ActionDispatch::IntegrationTest
     assert_match @user.username, response.body
     assert_select 'a[href=?]', edit_post_path(@post), text: "Edit"
     assert_select 'a[href=?]', post_path(@post), text: "Delete"
+    assert_select 'a[href=?]', posts_path(@post), text: "All Posts"
     
   end 
   
