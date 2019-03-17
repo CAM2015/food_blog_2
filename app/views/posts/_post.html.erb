@@ -1,0 +1,18 @@
+<!--iterate through all posts-->
+<% obj.each do |post| %>
+  <div class="row">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8 well">
+      <%= gravatar_for(post.user, size: 40) %>
+      <h4><%= link_to post.name, post_path(post)  %></h4>
+      <p><%= truncate(post.description, length: 150)  %></p>
+      <p>
+        <span class="quiet"><small>Created <%= time_ago_in_words(post.created_at) %> ago</small></span>
+      </p>
+    </div>
+    
+    
+  </div>
+
+<% end %>
