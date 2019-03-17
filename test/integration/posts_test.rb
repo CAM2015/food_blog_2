@@ -4,7 +4,7 @@ class PostsTest < ActionDispatch::IntegrationTest
   
   def setup
     #one way: use create! to ensures is hits the database
-    @user = User.create!(username: 'camelia', email: 'camelia@gmail.com')
+    @user = User.create!(username: 'camelia', email: 'camelia@gmail.com', password: "password", password_confirmation: "password")
     @post = Post.create(name: 'boild eggs', description: 'boil eggs for 8 min, add salt', user: @user)
     @post2 = Post.create(name: 'chicken nuggets', description: 'children favorite dish!', user: @user)
   end

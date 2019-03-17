@@ -4,7 +4,7 @@ class PostTest <ActiveSupport::TestCase
     
     def setup
       #create a user
-      @user = User.create!(username: "camelia", email: "camelia@gmail.com")
+      @user = User.create!(username: "camelia", email: "camelia@gmail.com", password: "password", password_confirmation: "password")
       #using .build automatically assign a user id to the posts
       @post = @user.posts.build(name: 'eggs', description: 'how to cook eggs') 
     end
