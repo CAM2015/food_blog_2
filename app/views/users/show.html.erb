@@ -1,9 +1,13 @@
-<%= render 'shared/page_title', title: "User #{@user.username}'s Profile" %>
-<div class="row">
-  <div class="col-md-4 col-md-offset-4 center">
-    <%= gravatar_for @user, size: 80 %>
-  </div>
-</div>
 
-<h4 align="center"><%= @user.username %>'s posts</h4>
-<%= render 'posts/post', obj: @user.posts %>
+<div class="col-md-4 col-md-offset-4 center profile">
+  <%= gravatar_for @user, size: 30 %>
+  <%= render 'shared/page_title', title: " #{@user.username}'s Profile" %>
+</div>
+<div class="row"></div>
+<div align="right">
+  <%= will_paginate @user_posts %>
+</div>
+<%= render 'posts/post', obj: @user_posts %>
+<div align="right">
+  <%= will_paginate @user_posts %>
+</div>
