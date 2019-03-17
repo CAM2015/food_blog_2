@@ -8,8 +8,9 @@ class User < ApplicationRecord
                       format: {with: VALID_EMAIL_REGEX },
                       uniqueness: {case_sensitive: false}
                       
-    has_many :posts
+    has_many :posts, dependent: :destroy
     
-    has_secure_password
+    
     validates :password, presence: true, length: { minimum: 5 }, allow_nil: true
+    has_secure_password
 end
