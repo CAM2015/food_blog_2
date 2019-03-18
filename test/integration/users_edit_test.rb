@@ -6,6 +6,10 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     #one way: use create! to ensures is hits the database
     @user = User.create!(username: 'camelia', email: 'camelia@gmail.com', 
                           password: "password", password_confirmation: "password")
+    @user2 = User.create!(username: "emma", email: "emma@gmail.com",
+                          password: "password", password_confirmation: "password")     
+    @admin_user = User.create!(username: "emma2", email: "emma2@gmail.com",
+                          password: "password", password_confirmation: "password", admin: true)  
   end
   
    test "reject invalid edit" do
@@ -29,4 +33,30 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     assert_match "camelia1", @user.username
     assert_match "camelia1@gmail.com", @user.email
   end
+  
+  test "accept edit attempt by admin user" do
+    sign_in_as(@admin_user, "password")
+    get edit_user_path(@user)
+    assert_template 'users/edit'
+    patch user_path(@user), params: { user: { username: "camelia3", email: "camelia3@gmail.com"} }
+    assert_redirected_to @user  #@user is short for user page
+    assert_not flash.empty?
+    @user.reload
+    assert_match "camelia3", @user.username
+    assert_match "camelia3@gmail.com", @user.email
+  end
+  
+  
+  test "redirect edit attempt by another non-admin user" do
+    sign_in_as(@user2, "password")
+    updated_name = "joe"
+    updated_email = "joe@gmail.com"
+    patch user_path(@user), params: { user: { username: updated_name, email: updated_email} }
+    assert_redirected_to users_path
+    assert_not flash.empty?
+    @user.reload
+    assert_match "camelia", @user.username
+    assert_match "camelia@gmail.com", @user.email
+  end
+  
 end
