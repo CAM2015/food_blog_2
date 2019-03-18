@@ -1,25 +1,39 @@
  <header class="navbar navbar-fixed-top navbar-inverse">
       <div class="logo container">
         <nav>
-           <%= link_to "B&C", root_path, id: "logo" %>
+           <%= link_to "Yum", root_path, id: "logo" %>
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Users",   users_path %></li>
-            <li><%= link_to "About",   about_path %></li>
-            <li><%= link_to "Log in", '#' %></li>
-            
+            <li><%= link_to "Users", users_path %></li>
+            <li><%= link_to "All Posts", posts_path %></li>
+            <% if logged_in? %>
             <li class="dropdown">
-                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Posts<span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Posts<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><%= link_to 'New Post', new_post_path %></li>
                     <li><a href="#">Another action</a></li>
                 </ul>
-              
             </li>
+            <% end  %>
+            <% if logged_in? %>
+            <li class="dropdown">
+                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.username %>'s profile<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to "View your profile", user_path(current_user)  %></li>
+                  <li><%= link_to "Edit your profile", edit_user_path(current_user)  %></li>
+                  <li role="separator" class="divider"></li>
+                  <li><%= link_to 'Log out', logout_path, method: :delete %></li>
+                </ul>
+            </li>
+            <% else %>
+              <li><%= link_to "Log in", login_path  %></li>
+            
+            <% end  %>
           </ul>
    
           
         </nav>
       </div>
     </header>
+    <div class="row top"></div>
     
  

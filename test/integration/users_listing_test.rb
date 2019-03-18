@@ -16,7 +16,8 @@ class UsersListingTest < ActionDispatch::IntegrationTest
     assert_select  "a[href=?]", user_path(@user2), text: @user2.username
   end
   
-  test "should delete test" do
+  test "should delete user" do
+    sign_in_as(@user2, "password")
     get users_path
     assert_template 'users/index'
     assert_difference 'User.count', -1 do

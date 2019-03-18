@@ -9,6 +9,7 @@ class PostsEditTest < ActionDispatch::IntegrationTest
   end
   
   test "reject invalid post update" do
+    sign_in_as(@user, "password")
     get edit_post_path(@post)
     assert_template 'posts/edit'
     patch post_path(@post), params: { post: { name: " ", description: " some description"} }
@@ -18,6 +19,7 @@ class PostsEditTest < ActionDispatch::IntegrationTest
   end
   
   test "successfully edit a post" do
+    sign_in_as(@user, "password")
     get edit_post_path(@post)
     assert_template 'posts/edit'
     updated_name = "updated post name"

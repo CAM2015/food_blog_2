@@ -24,6 +24,7 @@ class PostsTest < ActionDispatch::IntegrationTest
     end
   
   test "should get posts show" do
+    sign_in_as(@user, "password")
     #pass in the post object to which url we go to
     get post_path(@post)
     assert_template 'posts/show'
@@ -31,13 +32,14 @@ class PostsTest < ActionDispatch::IntegrationTest
     assert_match @post.name, response.body
     assert_match @post.description, response.body
     assert_match @user.username, response.body
-    assert_select 'a[href=?]', edit_post_path(@post), text: "Edit"
-    assert_select 'a[href=?]', post_path(@post), text: "Delete"
+    assert_select 'a[href=?]', edit_post_path(@post), text: "Edit Post"
+    assert_select 'a[href=?]', post_path(@post), text: "Delete Post"
     assert_select 'a[href=?]', posts_path(@post), text: "All Posts"
     
   end 
   
   test "create new valid post" do
+    sign_in_as(@user, "password")
     get new_post_path
     assert_template 'posts/new'
     name_of_post = "chicken kiev"
@@ -51,6 +53,7 @@ class PostsTest < ActionDispatch::IntegrationTest
   end
   
   test "reject invalid post submission" do
+    sign_in_as(@user, "password")
     get new_post_path
     assert_template 'posts/new'
     assert_no_difference 'Post.count' do
