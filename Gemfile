@@ -30,12 +30,12 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'rails-controller-testing'
-
 gem 'jquery-rails'
-
 gem 'will_paginate', '~> 3.1.0'
-
 gem 'bootstrap-will_paginate', '1.0.0'
+
+gem 'dotenv-rails'
+gem 'faraday'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

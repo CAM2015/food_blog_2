@@ -1,5 +1,5 @@
 
-<div class="well col-md-8 col-md-offset-2">
+<div class=" col-md-8 col-md-offset-2">
   <%=  render 'shared/page_title', title: @post.name %>
   <%= simple_format(@post.description) %>
   <div class="pull-right">
@@ -18,6 +18,6 @@
                              data: { confirm: "Are you sure you want to deleyte this post?" },
                              class: "btn btn-md btn-warning" %>
     <% end %>
-    <%=  link_to "All Posts", posts_path(@post), class: "btn btn-md btn-primary" %>
+    <%=  link_to "All Posts", posts_path(@post), class: "btn btn-md btn-warning" %>
   </div>
 </div>

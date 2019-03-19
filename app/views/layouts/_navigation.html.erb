@@ -1,10 +1,12 @@
  <header class="navbar navbar-fixed-top navbar-inverse">
       <div class="logo container">
         <nav>
-           <%= link_to "Yum", root_path, id: "logo" %>
+           <%= link_to "Home", root_path, id: "logo" %>
+            <i class="fa fa-newspaper-o"" aria-hidden="true"></i>
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "Users", users_path %></li>
             <li><%= link_to "Posts", posts_path %></li>
+            <li> <%= link_to "Sign up", signup_path %></li>
          
             <% if logged_in? %>
             <li class="dropdown">
