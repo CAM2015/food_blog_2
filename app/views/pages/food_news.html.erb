@@ -1,0 +1,14 @@
+<div class="">
+  <%=  render 'shared/page_title', title: "Food Tweets" %>
+</div> 
+<div class="row">
+  <% @tweets.each do |tweet|  %> 
+    <div class="col-md-6">
+      <div class="food-news">
+        <div class="card"><%= tweet %></div>
+      </div>
+    </div>
+  <% end %> 
+</div>
+
+

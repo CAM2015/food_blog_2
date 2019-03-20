@@ -19,7 +19,8 @@ Rails.application.routes.draw do
     post '/login', to: 'sessions#create'
     delete '/logout', to: 'sessions#destroy'
     
-    
+    #twitter routes
+    get 'food-news', to: 'pages#food_news'
 
     
    

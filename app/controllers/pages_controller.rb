@@ -7,5 +7,9 @@ class PagesController < ApplicationController
   def about
     
   end
+  
+  def food_news
+    @tweets = SocialTool.twitter_search
+  end 
 
 end
