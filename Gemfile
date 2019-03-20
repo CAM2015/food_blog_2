@@ -33,6 +33,7 @@ gem 'rails-controller-testing'
 gem 'jquery-rails'
 gem 'will_paginate', '~> 3.1.0'
 gem 'bootstrap-will_paginate', '1.0.0'
+gem 'font-awesome-sass', '4.6.2'
 
 gem 'dotenv-rails'
 gem 'faraday'

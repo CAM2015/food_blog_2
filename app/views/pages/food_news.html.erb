@@ -1,18 +1,21 @@
 <div class="">
-  <%=  render 'shared/page_title', title: "Recipes Tweets" %>
+  <%=  render 'shared/page_title', title: "Tweets" %>
 </div> 
+<div class="container">
   <div class="row">
-    <% @tweets.each do |tweet| %>
-      <div class="col-md-6">
-        <div class="tech-news">
-          <div class="card">
-            <%= twitter_parser tweet %>
-            <hr />
-          </div>
+    <div class="col-md-3"></div>
+    <div class="col-md-6 tech-news">
+      <% @tweets.each do |tweet| %>
+        <div class="card">
+           <p class="card-text">
+              <%= twitter_parser tweet %>
+           </p>
         </div>
-      </div>
-    <% end %>
+        <% end %>
+    </div>
+    <div class="col-md-3"></div>
   </div>
 </div>
+
 
 

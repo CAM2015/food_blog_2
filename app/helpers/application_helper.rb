@@ -10,6 +10,6 @@ module ApplicationHelper
       #form the url
       gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
       #return image
-      image_tag(gravatar_url, alt: user.username, class:"img-thumbnail")
+      image_tag(gravatar_url, alt: user.username, class:"img-circle")
     end
 end
