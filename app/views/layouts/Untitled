@@ -43,3 +43,6 @@
                 </ul>
             </li>
             <% end  %>
+            
+            
+    tweet.gsub(regex) { |url| "<a href='#{url}' target='_blank'>#{url}</a>" }
