@@ -34,3 +34,24 @@ CODE FROM sessions/new.html.erb
     </div>
     <div class="col-md-2"></div>
   </div>
+  
+  
+  
+  <div class="">
+  <%=  render 'shared/page_title', title: "Tweets" %>
+</div> 
+<div class="container">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 tech-news">
+      <% @tweets.each do |tweet| %>
+        <div class="card">
+           <p class="card-text">
+              <%= twitter_parser tweet %>
+           </p>
+        </div>
+        <% end %>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>
