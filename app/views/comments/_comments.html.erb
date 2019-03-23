@@ -1,0 +1,13 @@
+<!--run throug the individual comments and render a comment partial-->
+<!--because we used 'object:@comment', we have now comment available to use without '@'-->
+     <!--for each comment we render another partial and pass in the comment object-->
+
+<div align="center">
+  <%= will_paginate comments %>
+</div>
+<% comments.each do |comment| %>
+  <%= render(partial: 'comments/comment', object: comment) %>
+<% end %>
+<div align="center">
+  <%= will_paginate comments %>
+</div>

@@ -11,7 +11,9 @@
       <p class="change"><h4><%= link_to post.name, post_path(post)  %></h4></p>
       <p><%= truncate(post.description, length: 150)  %></p>
       <p>
-        <span class="quiet"><small>Created <%= time_ago_in_words(post.created_at) %> ago</small></span>
+        <span class="quiet"><small>Created <%= time_ago_in_words(post.created_at) %> ago by  <%= post.user.username.capitalize %> 
+                                        |  <%= pluralize(post.comments.count, 'Comment') %>
+                              </small></span>
       </p>
       <% if logged_in? && (current_user == post.user || current_user.admin?) %>
         <div class="post-actions">

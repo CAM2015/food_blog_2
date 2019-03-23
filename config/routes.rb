@@ -2,9 +2,15 @@ Rails.application.routes.draw do
     
     root to: 'pages#home'
     
-    resources :posts
-    resources :users, except: [:new]
+    resources :posts do
+        resources :comments, only: [:create] #nested route: the only route we want exposed for comments is create
+    end
     
+    #runt 'rails routes | grep comment' to see the nested route below
+    #post_comments POST   /posts/:post_id/comments(.:format) comments#create
+    
+    resources :users, except: [:new]
+  
     get '/signup', to: 'users#new'
     get '/login', to: 'sessions#new'
     post '/login', to: 'sessions#create'

@@ -8,7 +8,8 @@ class PostsController < ApplicationController
     end 
     
     def show
-     
+      @comment = Comment.new
+      @comments = @post.comments.paginate(page: params[:page], per_page: 5) # initiate comment instance variable
     end
     
     def new 

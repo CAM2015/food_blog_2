@@ -23,6 +23,49 @@
     <%=  link_to "All Posts", posts_path(@post), class: "btn btn-md btn-warning" %>
      <hr />
   </div>
+  <% if logged_in?  %>
+  <div class="row">
+    <div class="col=md-8">
+      
+      <%= form_for([@post, @comment], :html => {class: "form-horizontal", role: "form"}) do |f|  %>
+        <div class="form-group">
+          <div class="control-label col-md-2">
+            <%= f.label :description, "Comment" %>
+          </div>
+          <div class="col-md-8">
+            <%= f.text_area :description, rows: 8, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-offset-2 col-md-10 submit">
+            <%= f.submit "Submit", class: "btn btn-md btn-warning"  %>
+          </div>
+        </div>
+      <% end %>
+      <hr />
+    </div>
+  </div>
+<%  end %>
 </div>
 
+
+<!--if there are comments asociated with this post, pass in that object:@comments to the folder comments partial in views-->
+<% if @post.comments != 0 %>
+    <div class="row">
+    <div class="col-md-8  col-md-offset-2">
+     
+      <div id="messages">
+        <%= render partial: 'comments/comments', object: @comments %>
+      </div>
+    </div>
+  </div>
+
+<% else %>
+  <div class="row">
+    <div class="col-md-8  col-md-offset-2">
+      <h5>No Comment Yet!</h5>
+    </div>
+  </div>
+<% end %>
  <hr />
+ 
