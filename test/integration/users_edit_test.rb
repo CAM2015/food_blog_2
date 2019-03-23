@@ -12,7 +12,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
                           password: "password", password_confirmation: "password", admin: true)  
   end
   
-   test "reject invalid edit" do
+   test "reject invalid user edit" do
     sign_in_as(@user, "password")
     get edit_user_path(@user)
     assert_template 'users/edit'
@@ -22,7 +22,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     assert_select 'div.panel-body'
   end
   
-  test "accept valid edit" do
+  test "accept valid user edit" do
     sign_in_as(@user, "password")
     get edit_user_path(@user)
     assert_template 'users/edit'

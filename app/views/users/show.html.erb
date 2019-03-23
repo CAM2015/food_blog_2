@@ -4,10 +4,10 @@
   <%= render 'shared/page_title', title: " #{@user.username}'s Profile" %>
 </div>
 <div class="row"></div>
-<div align="right">
-  <%= will_paginate @user_posts %>
-</div>
-<%= render 'posts/post', obj: @user_posts %>
-<div align="right">
-  <%= will_paginate @user_posts %>
-</div>
+  <div  align="right">
+    <%= will_paginate @user_posts %>
+  </div>
+  <%= render 'posts/post', obj: @user_posts %>
+  <div  align="right">
+    <%= will_paginate @user_posts %>
+  </div>

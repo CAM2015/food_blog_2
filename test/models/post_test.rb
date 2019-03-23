@@ -1,3 +1,8 @@
+# REFERENCES:
+    # - https://guides.rubyonrails.org/testing.html
+    # -
+
+
 require "test_helper"
 
 class PostTest <ActiveSupport::TestCase

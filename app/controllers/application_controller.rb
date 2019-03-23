@@ -21,4 +21,5 @@ class ApplicationController < ActionController::Base
 end
 
 
-#rails s -b $IP -p $PORT
+
+

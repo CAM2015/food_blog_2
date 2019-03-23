@@ -4,7 +4,11 @@ class PagesController < ApplicationController
     redirect_to posts_path if logged_in?
   end
   
-  def about
+  def users
+    
+  end
+  
+  def posts
     
   end
   
