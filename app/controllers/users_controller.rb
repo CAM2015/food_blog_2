@@ -4,10 +4,10 @@ class UsersController < ApplicationController
   before_action :require_admin, only: [:destroy]
   
   def index 
-    @users = User.paginate(page: params[:page], per_page:3)
+   @users = User.paginate(page: params[:page], per_page:3).decorate
   end
   
-  def new #create new user object
+  def new #creates new user object
     @user = User.new
   end
   
@@ -23,7 +23,8 @@ class UsersController < ApplicationController
   end
   
   def show
-    @user_posts = @user.posts.paginate(page: params[:page], per_page: 5)
+    @user_posts = @user.posts.paginate(page: params[:page], per_page: 5).decorate
+   
   end
   
   def edit 

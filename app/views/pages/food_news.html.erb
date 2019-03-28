@@ -8,7 +8,9 @@
       <% @tweets.each do |tweet| %>
         <div class="card">
            <p class="card-text">
-              <%= twitter_parser tweet %>
+             <p class="tweet">
+                <%= twitter_parser tweet %>
+             </p>
            </p>
         </div>
         <% end %>

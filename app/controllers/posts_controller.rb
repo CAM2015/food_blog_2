@@ -3,8 +3,11 @@ class PostsController < ApplicationController
     before_action :require_user, except: [:index, :show]# so people cannot edit from the url
     before_action :require_same_user, only: [:edit, :update, :destroy]#only user who created the recipe should be able to edit, update ot delete
     
+    
     def index 
-      @posts = Post.paginate(page: params[:page], per_page: 5)
+      @posts = Post.paginate(page: params[:page], per_page: 5).decorate
+     # PostDecorator.decorate(@posts)
+      
     end 
     
     def show
