@@ -23,6 +23,8 @@
     <%=  link_to "All Posts", posts_path(@post), class: "btn btn-md btn-warning" %>
   
   </div>
+  
+  <!--FORM FOR CREATING COMMENTS-->
   <% if logged_in?  %>
   <div class="row">
     <div class="col=md-8">
@@ -30,7 +32,7 @@
       <%= form_for([@post, @comment], :html => {class: "form-horizontal", role: "form"}) do |f|  %>
         <div class="form-group">
           <div class="control-label col-md-2">
-            <%= f.label :description, "Post a Comment" %>
+            <%= f.label :description, "Comment" %>
           </div>
           <div class="col-md-8">
             <%= f.text_area :description, rows: 8, class: "form-control" %>

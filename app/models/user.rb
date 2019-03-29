@@ -10,7 +10,7 @@ class User < ActiveRecord:: Base
                       
     validates :password, presence: true, length: { minimum: 5 }, allow_nil: true
     has_secure_password
-    has_many :posts, dependent: :destroy
-    has_many :comments, dependent: :destroy
+    has_many :posts, dependent: :destroy #if a user is deleted, all his posts are removed
+    has_many :comments, dependent: :destroy # if a user is deleted, all his comments are removed
     
 end
