@@ -19,5 +19,6 @@ Rails.application.routes.draw do
     #twitter routes
     get 'food-news', to: 'pages#food_news'
 
-    
+    #search routes
+    get '/search' => 'pages#search', :as => 'search_page'
 end

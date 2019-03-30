@@ -7,6 +7,7 @@ class Post < ActiveRecord:: Base
     default_scope -> { order(updated_at: :desc)} #the latest post will show up first
     
     belongs_to :user
-    has_many :comments, dependent: :destroy
+    has_many :comments, dependent: :destroy 
     
+  
 end

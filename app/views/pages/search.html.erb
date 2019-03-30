@@ -1,0 +1,18 @@
+<div class="col-md-4 col-md-offset-4 center profile">
+  <%=  render 'shared/page_title', title: "Search Results for Posts" %>
+</div> 
+<div class="row"></div>
+  <% @results.each do |result| %>  
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+         <h4> <%= result.name %></h4>
+          <p> <%= result.description %></p>
+        </div>
+
+        <div class="col-md-1"></div> 
+     </div>
+<% end %>
+    
+    
+    

@@ -12,6 +12,15 @@ class PagesController < ApplicationController
     
   end
   
+  def search
+    if params[:search].blank?  
+      redirect_to(root_path, alert: "Empty field!") and return  
+    else  
+      @parameter = params[:search].downcase  
+      @results = Post.all.where("name LIKE :search", search:  "%#{@parameter}%")  
+    end  
+  end
+  
   def food_news
     @tweets = SocialTool.twitter_search
   end 

@@ -6,8 +6,6 @@ class PostsController < ApplicationController
     
     def index 
       @posts = Post.paginate(page: params[:page], per_page: 5).decorate
-     # PostDecorator.decorate(@posts)
-      
     end 
     
     def show
@@ -33,6 +31,7 @@ class PostsController < ApplicationController
     def edit 
      
     end
+    
     
     def update
       if @post.update(post_params)
