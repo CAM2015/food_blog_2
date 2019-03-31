@@ -52,14 +52,7 @@ class UserTest < ActiveSupport::TestCase
       @user.save
       assert_not duplicate_user.valid?
     end
-    
-    test "email should be lowercase before hitting db" do
-      mixed_email = 'CamElIa@Example.com'
-      @user.email = mixed_email
-      @user.save
-      assert_equal mixed_email.downcase, @user.reload.email
-    end
-    
+ 
     test "password should be present" do
       @user.password = @user.password_confirmation = " "
       assert_not @user.valid?
@@ -70,12 +63,5 @@ class UserTest < ActiveSupport::TestCase
       assert_not @user.valid?
     end
     
-    test "associated posts should be destroyed" do
-      @user.save
-      @user.posts.create!(name: "testing delete", description: "testing delete function")
-      assert_difference 'Post.count', -1 do
-        @user.destroy
-      end
-    end
     
 end

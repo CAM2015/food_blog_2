@@ -33,11 +33,7 @@ class PostTest <ActiveSupport::TestCase
       assert_not @post.valid?
     end
     
-    test "description should not be less than 5 characters" do
-      @post.description = "a" * 3
-      assert_not @post.valid?
-    end
-    
+  
     test "description should not be more than 2000 characters" do
       @post.description = "a" * 2001
       assert_not @post.valid?

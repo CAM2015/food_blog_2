@@ -11,17 +11,18 @@ class Post < ActiveRecord:: Base
     
     scope :sorted, ->{ order(name: :asc) }
     
-    include PgSearch
-      pg_search_scope :search,
-                  against: [
-                    :name,
-                    :description
-                  ],
-                  using: {
-                    tsearch: {
-                      any_word: true,
-                      prefix: true,
-                    }
-                  }
+    #TO USE IT WITH POSTGRESS DATABASE IN HEROKU
+    # include PgSearch
+    #   pg_search_scope :search,
+    #               against: [
+    #                 :name,
+    #                 :description
+    #               ],
+    #               using: {
+    #                 tsearch: {
+    #                   any_word: true,
+    #                   prefix: true,
+    #                 }
+    #               }
 end
 

@@ -1,3 +1,8 @@
+#https://www.udemy.com/the-complete-ruby-on-rails-developer-course
+#https://www.railstutorial.org/book
+
+
+
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   

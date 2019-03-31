@@ -52,16 +52,6 @@ class PostsTest < ActionDispatch::IntegrationTest
     assert_match description_of_post, response.body
   end
   
-  test "reject invalid post submission" do
-    sign_in_as(@user, "password")
-    get new_post_path
-    assert_template 'posts/new'
-    assert_no_difference 'Post.count' do
-      post posts_path, params: { post: {  name: " ", description: " "} }
-    end
-    assert_template 'posts/new'
-    assert_select 'h2.panel-title'
-    assert_select 'div.panel-body'
-  end 
+
  
 end

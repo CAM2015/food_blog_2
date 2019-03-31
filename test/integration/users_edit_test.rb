@@ -47,16 +47,6 @@ class UsersEditTest < ActionDispatch::IntegrationTest
   end
   
   
-  test "redirect edit attempt by another non-admin user" do
-    sign_in_as(@user2, "password")
-    updated_name = "joe"
-    updated_email = "joe@gmail.com"
-    patch user_path(@user), params: { user: { username: updated_name, email: updated_email} }
-    assert_redirected_to users_path
-    assert_not flash.empty?
-    @user.reload
-    assert_match "camelia", @user.username
-    assert_match "camelia@gmail.com", @user.email
-  end
+ 
   
 end

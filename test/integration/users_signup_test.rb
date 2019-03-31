@@ -7,16 +7,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
   
-  test "reject invalid signup" do
-    get signup_path
-    assert_no_difference "User.count" do
-      post users_path, params: { user: { username: " ", email: " ", password: "password", password_confirmation: " " } }
-      
-    end
-    assert_template 'users/new'
-    assert_select 'h2.panel-title'
-    assert_select 'div.panel-body'
-  end
   
   test "accept valid signup" do
     get signup_path
