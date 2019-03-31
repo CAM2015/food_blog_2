@@ -13,4 +13,5 @@ class User < ActiveRecord:: Base
     has_many :posts, dependent: :destroy #if a user is deleted, all his posts are removed
     has_many :comments, dependent: :destroy # if a user is deleted, all his comments are removed
     
+   
 end

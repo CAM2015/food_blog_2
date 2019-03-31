@@ -35,6 +35,7 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'bootstrap-will_paginate', '1.0.0'
 gem 'font-awesome-sass', '4.6.2'
 gem 'draper', github: 'drapergem/draper'
+gem 'pg_search'
 
 gem 'dotenv-rails'
 gem 'faraday'
@@ -59,6 +60,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring', '2.0.2'
   gem 'spring-watcher-listen', '2.0.1'
+  gem 'awesome_print', require: false
 end
 
 group :production do

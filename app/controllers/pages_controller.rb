@@ -21,6 +21,11 @@ class PagesController < ApplicationController
     end  
   end
   
+  # def search
+  #   @results = Post.search(params[:search])
+  # end
+  
+  
   def food_news
     @tweets = SocialTool.twitter_search
   end 
